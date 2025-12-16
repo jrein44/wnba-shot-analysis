@@ -105,45 +105,6 @@ wnba-shot-analysis/
 └── README.md
 ```
 
----
-
-## 🚀 How to Use
-
-### Data Collection
-1. Go to stats.wnba.com shot chart for desired player
-2. Open browser DevTools (F12) → Network tab
-3. Filter for XHR requests
-4. Locate `shotchartdetail` API call
-5. Copy JSON response
-
-See [DATA_COLLECTION_GUIDE.md](DATA_COLLECTION_GUIDE.md) for detailed instructions.
-
-### Running Analysis
-
-**Requirements:**
-```bash
-pip install pandas numpy matplotlib seaborn
-npm install -g docx
-```
-
-**Generate Shot Charts:**
-```bash
-python src/create_clean_shot_charts.py
-```
-
-**Run Clutch Analysis:**
-```bash
-python src/clutch_analysis.py
-python src/clutch_visualizations.py
-```
-
-**Create Player Reports:**
-```bash
-node src/generate_player_report.js "Player Name" data/raw/player_shots.csv outputs/shot_charts/player_chart.png outputs/reports/player_report.docx
-```
-
----
-
 ## 📈 Skills Demonstrated
 
 ✅ **Data Engineering:** API data extraction, JSON parsing, data pipeline development  
