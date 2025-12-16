@@ -18,6 +18,47 @@
             background: #f5f5f5;
         }
         
+        /* Navigation */
+        nav {
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        nav .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+        
+        nav .logo {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #002B5C;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+        
+        nav a {
+            color: #002B5C;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #6ECEB2;
+        }
+        
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -25,9 +66,9 @@
         }
         
         header {
-            background: #002B5C;
+            background: linear-gradient(135deg, #002B5C 0%, #004080 100%);
             color: white;
-            padding: 40px 20px;
+            padding: 60px 20px;
             text-align: center;
             margin-bottom: 40px;
         }
@@ -37,9 +78,10 @@
             margin-bottom: 10px;
         }
         
-        header p {
+        header .subtitle {
             font-size: 1.2em;
             color: #6ECEB2;
+            margin-bottom: 20px;
         }
         
         .contact {
@@ -51,6 +93,11 @@
             color: #6ECEB2;
             text-decoration: none;
             margin: 0 15px;
+            transition: color 0.3s;
+        }
+        
+        .contact a:hover {
+            color: white;
         }
         
         .section {
@@ -68,6 +115,11 @@
             border-bottom: 3px solid #6ECEB2;
         }
         
+        h3 {
+            color: #002B5C;
+            margin: 20px 0 10px 0;
+        }
+        
         .key-finding {
             background: #f8f9fa;
             padding: 20px;
@@ -77,8 +129,7 @@
         }
         
         .key-finding h3 {
-            color: #002B5C;
-            margin-bottom: 10px;
+            margin-top: 0;
         }
         
         .stat {
@@ -99,6 +150,11 @@
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+        
+        .image-card:hover {
+            transform: translateY(-5px);
         }
         
         .image-card img {
@@ -112,6 +168,13 @@
             text-align: center;
             font-weight: bold;
             color: #002B5C;
+        }
+        
+        .full-width-image {
+            width: 100%;
+            border-radius: 8px;
+            margin: 20px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
         
         .download-section {
@@ -148,6 +211,7 @@
             text-decoration: none;
             font-weight: bold;
             margin-top: 10px;
+            transition: background 0.3s;
         }
         
         .download-card a:hover {
@@ -169,13 +233,41 @@
             font-size: 0.9em;
         }
         
+        .stat-box {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 10px 0;
+        }
+        
+        .stat-box .number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #002B5C;
+            margin-bottom: 5px;
+        }
+        
+        .stat-box .label {
+            color: #666;
+            font-size: 0.9em;
+        }
+        
         footer {
             text-align: center;
             padding: 40px 20px;
             color: #666;
+            background: white;
+            margin-top: 40px;
         }
         
         @media (max-width: 768px) {
+            nav ul {
+                flex-wrap: wrap;
+                gap: 15px;
+                justify-content: center;
+            }
+            
             header h1 {
                 font-size: 1.8em;
             }
@@ -192,133 +284,231 @@
     </style>
 </head>
 <body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">🏀 WNBA Analysis</div>
+            <ul>
+                <li><a href="#findings">Findings</a></li>
+                <li><a href="#shot-charts">Shot Charts</a></li>
+                <li><a href="#clutch">Clutch Analysis</a></li>
+                <li><a href="#reports">Reports</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header -->
     <header>
         <h1>🏀 WNBA Shot Analysis</h1>
-        <p>NY Liberty 2025 Season Performance</p>
+        <div class="subtitle">NY Liberty 2025 Season Performance</div>
+        <p style="font-size: 0.9em; margin-bottom: 5px;">By Jess Reinhardt</p>
+        <p style="font-size: 0.85em; opacity: 0.9;">1,857 shots analyzed from 5 players</p>
         <div class="contact">
             <a href="https://linkedin.com/in/jessica-reinhardt" target="_blank">LinkedIn</a>
-            <a href="mailto:jess.reinhardt44@gmail.com">Email</a>
-            <a href="https://github.com/jrein44/wnba-shot-analysis" target="_blank">GitHub</a>
+            <a href="mailto:jess.reinhardt44@gmail.com">📧 Email</a>
+            <a href="https://github.com/jrein44/wnba-shot-analysis" target="_blank">GitHub Repo</a>
         </div>
     </header>
 
     <div class="container">
-        <!-- Key Findings Section -->
+        <!-- Quick Stats -->
         <div class="section">
+            <div class="image-grid">
+                <div class="stat-box">
+                    <div class="number">1,857</div>
+                    <div class="label">Shots Analyzed</div>
+                </div>
+                <div class="stat-box">
+                    <div class="number">5</div>
+                    <div class="label">Players</div>
+                </div>
+                <div class="stat-box">
+                    <div class="number">2025</div>
+                    <div class="label">WNBA Season</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Key Findings Section -->
+        <div id="findings" class="section">
             <h2>🔍 Key Findings</h2>
             
             <div class="key-finding">
                 <h3>Finding #1: Stewart Thrives in Clutch</h3>
-                <p><span class="stat">+8.8%</span> better in clutch situations (54.1% vs 45.3% rest of game)</p>
-                <p>Despite this elite performance, she only receives 18.4% of clutch possessions.</p>
+                <p><span class="stat">+8.8%</span> better in clutch situations (54.1% FG vs 45.3% rest of game)</p>
+                <p style="margin-top: 10px;">Despite this elite performance, she only receives <strong>18.4%</strong> of clutch possessions. Increasing her usage in critical moments could significantly improve close-game outcomes.</p>
             </div>
             
             <div class="key-finding">
                 <h3>Finding #2: The Sabrina Paradox</h3>
                 <p>Handles <span class="stat">39.3%</span> of clutch possessions but efficiency drops <span class="stat">-5.5%</span></p>
-                <p>High usage with contested 3PT attempts leads to lower efficiency in critical moments.</p>
+                <p style="margin-top: 10px;">High usage with contested 3PT attempts (49.4% of clutch shots) leads to lower efficiency. She shoots only 29.9% from three overall but is more efficient on 2PT attempts (49.3%).</p>
+                <p style="margin-top: 10px;"><strong>Recommendation:</strong> Reduce contested 3PT attempts, increase drives for higher-percentage looks.</p>
             </div>
             
             <div class="key-finding">
                 <h3>Finding #3: Jones is Underutilized</h3>
                 <p>Elite efficiency: <span class="stat">49.0% FG</span> and <span class="stat">42.4% from 3PT</span></p>
-                <p>Only 13.4% clutch usage despite being 8.6 percentage points above league average from three.</p>
+                <p style="margin-top: 10px;">Only <strong>13.4%</strong> clutch usage despite being <strong>8.6 percentage points</strong> above league average (33.8%) from three. Her efficiency actually INCREASES in Q4 (57.4%).</p>
+                <p style="margin-top: 10px;"><strong>Recommendation:</strong> Design specific plays for Jones in final possessions.</p>
             </div>
         </div>
 
         <!-- Shot Charts Section -->
-        <div class="section">
-            <h2>📊 Shot Charts</h2>
-            <p>Professional visualizations with accurate WNBA court dimensions (22.15 ft three-point line)</p>
+        <div id="shot-charts" class="section">
+            <h2>📊 Shot Charts - All 5 Players</h2>
+            <p>Professional visualizations with accurate WNBA court dimensions (22.15 ft three-point line). Click images to view full size.</p>
             
             <div class="image-grid">
                 <div class="image-card">
                     <img src="outputs/shot_charts/real/Ionescu_2025_CLEAN_shotchart.png" alt="Sabrina Ionescu Shot Chart">
-                    <div class="caption">Sabrina Ionescu</div>
+                    <div class="caption">Sabrina Ionescu<br><small>573 shots | 40.1% FG</small></div>
                 </div>
                 <div class="image-card">
                     <img src="outputs/shot_charts/real/Stewart_2025_CLEAN_shotchart.png" alt="Breanna Stewart Shot Chart">
-                    <div class="caption">Breanna Stewart</div>
+                    <div class="caption">Breanna Stewart<br><small>408 shots | 46.1% FG</small></div>
                 </div>
                 <div class="image-card">
                     <img src="outputs/shot_charts/real/Jones_2025_CLEAN_shotchart.png" alt="Jonquel Jones Shot Chart">
-                    <div class="caption">Jonquel Jones</div>
+                    <div class="caption">Jonquel Jones<br><small>306 shots | 49.0% FG</small></div>
+                </div>
+                <div class="image-card">
+                    <img src="outputs/shot_charts/real/Cloud_2025_CLEAN_shotchart.png" alt="Natasha Cloud Shot Chart">
+                    <div class="caption">Natasha Cloud<br><small>349 shots | 43.3% FG</small></div>
+                </div>
+                <div class="image-card">
+                    <img src="outputs/shot_charts/real/Fiebich_2025_CLEAN_shotchart.png" alt="Leonie Fiebich Shot Chart">
+                    <div class="caption">Leonie Fiebich<br><small>221 shots | 48.9% FG</small></div>
                 </div>
             </div>
         </div>
 
         <!-- Clutch Analysis Section -->
-        <div class="section">
-            <h2>⏱️ Clutch Performance Dashboard</h2>
-            <p>Comprehensive analysis of last 5 minutes of 4th quarter performance</p>
-            <img src="outputs/clutch_analysis/comprehensive_dashboard.png" alt="Clutch Analysis Dashboard" style="width: 100%; border-radius: 8px; margin-top: 20px;">
+        <div id="clutch" class="section">
+            <h2>⏱️ Clutch Performance Analysis</h2>
+            <p><strong>Definition:</strong> Last 5 minutes of 4th quarter</p>
+            <p style="margin-bottom: 20px;"><em>Note: Score differential data not available in shot chart API. Standard definition (within 5 points) would require play-by-play integration.</em></p>
+            
+            <h3>Comprehensive Dashboard</h3>
+            <img src="outputs/clutch_analysis/comprehensive_dashboard.png" alt="Clutch Analysis Dashboard" class="full-width-image">
+            
+            <h3>Individual Analysis Charts</h3>
+            <div class="image-grid">
+                <div class="image-card">
+                    <img src="outputs/clutch_analysis/clutch_efficiency.png" alt="Clutch Efficiency">
+                    <div class="caption">Clutch vs Non-Clutch FG%</div>
+                </div>
+                <div class="image-card">
+                    <img src="outputs/clutch_analysis/usage_comparison.png" alt="Usage Comparison">
+                    <div class="caption">Usage Patterns by Situation</div>
+                </div>
+                <div class="image-card">
+                    <img src="outputs/clutch_analysis/quarter_trends.png" alt="Quarter Trends">
+                    <div class="caption">Quarter-by-Quarter Efficiency</div>
+                </div>
+                <div class="image-card">
+                    <img src="outputs/clutch_analysis/shot_selection.png" alt="Shot Selection">
+                    <div class="caption">3PT Rate by Situation</div>
+                </div>
+                <div class="image-card">
+                    <img src="outputs/clutch_analysis/clutch_matrix.png" alt="Clutch Matrix">
+                    <div class="caption">Usage vs Efficiency Matrix</div>
+                </div>
+            </div>
         </div>
 
         <!-- Download Reports Section -->
-        <div class="section">
+        <div id="reports" class="section">
             <h2>📄 Download Player Reports</h2>
-            <p>Professional Word documents with statistics, visualizations, and development recommendations</p>
+            <p>Professional Word documents with full season statistics, embedded shot charts, clutch analysis, and player-specific development recommendations.</p>
             
             <div class="download-section">
                 <div class="download-card">
                     <h3>Sabrina Ionescu</h3>
                     <p>2025 Season Report</p>
+                    <p style="font-size: 0.85em; margin: 10px 0; opacity: 0.9;">573 shots | 40.1% FG<br>League benchmarking included</p>
                     <a href="outputs/player_reports/Ionescu_2025_Season_Report.docx" download>Download Report</a>
                 </div>
                 <div class="download-card">
                     <h3>Breanna Stewart</h3>
                     <p>2025 Season Report</p>
+                    <p style="font-size: 0.85em; margin: 10px 0; opacity: 0.9;">408 shots | 46.1% FG<br>Clutch star performer</p>
                     <a href="outputs/player_reports/Stewart_2025_Season_Report.docx" download>Download Report</a>
                 </div>
                 <div class="download-card">
                     <h3>Jonquel Jones</h3>
                     <p>2025 Season Report</p>
+                    <p style="font-size: 0.85em; margin: 10px 0; opacity: 0.9;">306 shots | 49.0% FG<br>Elite 3PT shooter (42.4%)</p>
                     <a href="outputs/player_reports/Jones_2025_Season_Report.docx" download>Download Report</a>
                 </div>
             </div>
         </div>
 
-        <!-- Technical Details Section -->
-        <div class="section">
-            <h2>🛠️ Technical Approach</h2>
-            <p><strong>Data Source:</strong> Official WNBA Stats API (stats.wnba.com)</p>
-            <p><strong>Sample Size:</strong> 1,857 shots from 5 NY Liberty players</p>
-            <p><strong>Season:</strong> 2025 WNBA Regular Season</p>
+        <!-- Methodology Section -->
+        <div id="about" class="section">
+            <h2>🛠️ Methodology & Technical Details</h2>
             
+            <h3>Data Source</h3>
+            <ul style="padding-left: 20px; margin: 10px 0;">
+                <li><strong>Source:</strong> Official WNBA Stats API (stats.wnba.com)</li>
+                <li><strong>Collection Method:</strong> Browser developer tools (F12 → Network → XHR)</li>
+                <li><strong>Season:</strong> 2025 WNBA Regular Season</li>
+                <li><strong>Sample Size:</strong> 1,857 total shots from 5 NY Liberty players</li>
+            </ul>
+            
+            <h3>League Benchmarking</h3>
+            <p>All players compared to 2025 WNBA league averages from Basketball-Reference:</p>
+            <ul style="padding-left: 20px; margin: 10px 0;">
+                <li>FG%: <strong>43.9%</strong></li>
+                <li>2PT%: <strong>49.8%</strong></li>
+                <li>3PT%: <strong>33.8%</strong></li>
+            </ul>
+            
+            <h3>Technical Stack</h3>
             <div class="skills">
                 <span class="skill-tag">Python</span>
                 <span class="skill-tag">pandas</span>
                 <span class="skill-tag">matplotlib</span>
+                <span class="skill-tag">seaborn</span>
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">docx-js</span>
                 <span class="skill-tag">Statistical Analysis</span>
                 <span class="skill-tag">Data Visualization</span>
                 <span class="skill-tag">Basketball Analytics</span>
                 <span class="skill-tag">Automated Reporting</span>
             </div>
             
-            <p style="margin-top: 20px;"><strong>League Benchmarking:</strong> All players compared to 2025 WNBA averages (43.9% FG, 49.8% 2PT, 33.8% 3PT from Basketball-Reference)</p>
-        </div>
-
-        <!-- Recommendations Section -->
-        <div class="section">
-            <h2>💡 Actionable Recommendations</h2>
-            <ul style="padding-left: 20px;">
-                <li style="margin: 15px 0;"><strong>Increase Stewart's clutch usage:</strong> Her +8.8% efficiency boost in pressure situations is being underutilized</li>
-                <li style="margin: 15px 0;"><strong>Optimize Ionescu's shot selection:</strong> Reduce contested 3PT attempts, increase drives for higher-percentage looks</li>
-                <li style="margin: 15px 0;"><strong>Leverage Jones strategically:</strong> Elite 42.4% 3PT shooter deserves more critical possessions</li>
+            <h3>Skills Demonstrated</h3>
+            <ul style="padding-left: 20px; margin: 10px 0;">
+                <li>✅ <strong>Data Engineering:</strong> API data extraction, JSON parsing, data pipeline development</li>
+                <li>✅ <strong>Statistical Analysis:</strong> Performance metrics, situational analysis, league benchmarking</li>
+                <li>✅ <strong>Data Visualization:</strong> Shot charts with accurate court dimensions, multi-panel dashboards</li>
+                <li>✅ <strong>Automation:</strong> Programmatic Word document generation with embedded visualizations</li>
+                <li>✅ <strong>Domain Knowledge:</strong> Basketball analytics, WNBA specifications, clutch situations</li>
+                <li>✅ <strong>Communication:</strong> Executive summaries, actionable recommendations, visual storytelling</li>
             </ul>
         </div>
 
-        <!-- Full Analysis Link -->
+        <!-- View Full Code Section -->
         <div class="section" style="text-align: center; background: linear-gradient(135deg, #002B5C 0%, #004080 100%); color: white;">
-            <h2 style="color: white; border-bottom: 3px solid #6ECEB2;">View Complete Analysis</h2>
-            <p style="margin: 20px 0;">For detailed methodology, additional visualizations, and technical documentation:</p>
+            <h2 style="color: white; border-bottom: 3px solid #6ECEB2;">View Complete Project</h2>
+            <p style="margin: 20px 0;">Full source code, documentation, and technical details available on GitHub:</p>
             <a href="https://github.com/jrein44/wnba-shot-analysis" target="_blank" style="display: inline-block; background: #6ECEB2; color: #002B5C; padding: 15px 40px; border-radius: 5px; text-decoration: none; font-weight: bold; margin-top: 10px;">View on GitHub</a>
+            <p style="margin-top: 20px; font-size: 0.9em; opacity: 0.9;">README | Source Code | Data Files | Jupyter Notebooks</p>
         </div>
     </div>
 
+    <!-- Footer -->
     <footer>
-        <p><strong>Jess Reinhardt</strong> | Basketball Analytics Portfolio</p>
-        <p>Built with real WNBA API data | December 2025</p>
+        <p style="font-size: 1.1em; margin-bottom: 10px;"><strong>Jess Reinhardt</strong></p>
+        <p style="margin-bottom: 5px;">Basketball Analytics Portfolio</p>
+        <p style="font-size: 0.9em; color: #999;">Built with real WNBA API data | December 2025</p>
+        <div style="margin-top: 15px;">
+            <a href="https://linkedin.com/in/jessica-reinhardt" target="_blank" style="color: #002B5C; margin: 0 10px;">LinkedIn</a> |
+            <a href="mailto:jess.reinhardt44@gmail.com" style="color: #002B5C; margin: 0 10px;">Email</a> |
+            <a href="https://github.com/jrein44" target="_blank" style="color: #002B5C; margin: 0 10px;">GitHub</a>
+        </div>
     </footer>
 </body>
 </html>
