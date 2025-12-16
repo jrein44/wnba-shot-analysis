@@ -7,6 +7,26 @@ Contact: www.linkedin.com/in/jessica-reinhardt | jess.reinhardt44@gmail.com
 
 ---
 
+## 👀 Quick Start (For Non-Technical Viewers)
+
+**Just want to see the analysis?** Click these links:
+
+📊 **[View Key Findings](INSIGHTS.md)** - Executive summary with actionable recommendations
+
+📄 **Download Player Reports:**
+- [Sabrina Ionescu 2025 Report](outputs/player_reports/Ionescu_2025_Season_Report.docx) ← Click "Download" button
+- [Breanna Stewart 2025 Report](outputs/player_reports/Stewart_2025_Season_Report.docx)
+- [Jonquel Jones 2025 Report](outputs/player_reports/Jones_2025_Season_Report.docx)
+
+📈 **View Visualizations:**
+- [Shot Charts](outputs/shot_charts/real/) - Click any player to see their shot chart
+- [Clutch Performance Dashboard](outputs/clutch_analysis/comprehensive_dashboard.png)
+- [All Analysis Charts](outputs/clutch_analysis/)
+
+*No coding required - just click and view!*
+
+---
+
 ## 🏀 Project Overview
 
 This project demonstrates professional basketball analytics skills through comprehensive shot analysis of NY Liberty players' 2025 season performance. Using real data from the official WNBA Stats API, I built a complete analytics pipeline that mirrors workflows used by professional basketball operations teams.
@@ -20,7 +40,9 @@ This project demonstrates professional basketball analytics skills through compr
 
 ---
 
-## 📊 Sample Outputs
+## 📊 What's Inside This Project
+
+Below are examples of the analysis outputs. All files are in the folders listed above.
 
 ### Shot Charts
 Clean, professional visualizations with accurate WNBA court dimensions:
@@ -104,6 +126,46 @@ wnba-shot-analysis/
 │   └── analysis.ipynb          # Exploratory analysis
 └── README.md
 ```
+
+---
+
+## 🚀 For Data Analysts: How to Reproduce This Analysis
+
+*Note: This section is for technical users who want to run the code themselves. If you just want to view the results, see the "Quick Start" section at the top.*
+
+### Data Collection
+1. Go to stats.wnba.com shot chart for desired player
+2. Open browser DevTools (F12) → Network tab
+3. Filter for XHR requests
+4. Locate `shotchartdetail` API call
+5. Copy JSON response and save as .json file
+6. Use `convert_real_data.py` to convert JSON to CSV
+
+### Running Analysis
+
+**Requirements:**
+```bash
+pip install pandas numpy matplotlib seaborn
+npm install -g docx
+```
+
+**Generate Shot Charts:**
+```bash
+python src/create_clean_shot_charts.py
+```
+
+**Run Clutch Analysis:**
+```bash
+python src/clutch_analysis.py
+python src/clutch_visualizations.py
+```
+
+**Create Player Reports:**
+```bash
+node src/generate_player_report.js "Player Name" data/raw/player_shots.csv outputs/shot_charts/player_chart.png outputs/reports/player_report.docx
+```
+
+---
 
 ## 📈 Skills Demonstrated
 
