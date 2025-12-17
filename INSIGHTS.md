@@ -85,4 +85,4 @@ Analysis of 1,857 real shot attempts from NY Liberty's 2025 season reveals disti
 
 ---
 
-*Analysis conducted December 2024 using Python, pandas, matplotlib*
+*Analysis conducted December 2025 using Python, pandas, matplotlib*
