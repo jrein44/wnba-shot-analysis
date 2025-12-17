@@ -89,6 +89,7 @@ Automated Word document generation with statistics, visualizations, and developm
 - Statistical analysis: shooting efficiency by situation, usage patterns, quarter trends
 - Clutch performance definition: Last 5 minutes of Q4
 - Benchmarking vs 2025 WNBA league averages (43.9% FG, 49.8% 2PT, 33.8% 3PT)
+- Usage rate calculated as % of team shots taken while on court (differs from traditional USG% which includes turnovers and FTs)
 
 **Visualization:**
 - matplotlib & seaborn for shot charts and analytics dashboards
@@ -190,13 +191,45 @@ All data represents the 2025 WNBA regular season.
 
 ## 🎯 Future Enhancements
 
+### Immediate Next Steps:
 - [ ] **Integrate play-by-play data for true clutch filtering** (score within 5 points)
-- [ ] Expand to full league-wide dataset (all 12 teams)
-- [ ] Add assisted vs. unassisted shot analysis
-- [ ] Incorporate defensive matchup data
-- [ ] Build interactive dashboard (Streamlit/Dash)
-- [ ] Add shot clock timing analysis
-- [ ] Create opponent scouting reports
+- [ ] **Add eFG% and TS% calculations** (requires free throw data from play-by-play API)
+- [ ] **Clarify usage rate methodology** (currently % of team shots; traditional USG% includes TOs and FTs)
+
+### Scalability - This Framework Can Expand:
+
+**Different Metrics:**
+- Effective Field Goal % (eFG%) and True Shooting % (TS%)
+- Assisted vs unassisted shot rates (creation vs catch-and-shoot)
+- Shot zones (rim, paint, midrange, three-point breakdown)
+- Shot clock timing (early vs late clock efficiency)
+
+**Different Benchmarks:**
+- Compare to playoff teams specifically
+- Opponent-adjusted efficiency (vs top defenses)
+- Lineup-specific analysis (performance with different teammates)
+
+**Different Scopes:**
+- Full league analysis (12 teams, ~150 players)
+- Opponent scouting reports (defensive tendencies, shot prevention)
+- Historical trends (year-over-year player development)
+- Playoff-specific clutch analysis
+
+**Integration with Other Data:**
+- Film breakdown (marry shot data with video)
+- Tracking data (defender distance, player movement)
+- Synergy data (play type: PnR, isolation, spot-up, transition)
+
+---
+
+## 🎬 Next Steps: Adding Film Context
+
+Current analysis shows *what* is happening statistically. Film integration would reveal *why*:
+- Are Sabrina's contested 3PTs the result of defensive coverages (two to the ball)?
+- Is the roller open when she's pulling from three?
+- Are Stewart's improved clutch numbers due to better shot selection or defensive attention elsewhere?
+
+This statistical foundation provides the roadmap for targeted film study.
 
 ---
 
